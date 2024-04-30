@@ -1,3 +1,13 @@
+# 个人添加
+# 训练数据
+data/
+# 一些临时的脚本
+tmp/
+input/
+
+# 一些临时的结果
+*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
