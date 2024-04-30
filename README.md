@@ -15,10 +15,25 @@
 ## DataProcess
 第一期采用的成熟的开源数据集，维基百科，百度百科，悟道和天工数据集。因此数据预处理部分会相关比较简单，会持续更新。
 
+1. 由于当前仅采用成熟的数据集，所以仅仅是学习如何进行预处理成 Dataset; 具体做法是给每一个文本后面加上一个end token, qwen 的 end token 是 `<|endoftext|>`。
+> 为什么用 qwen 处理？因为这样最方便了，其他的 model 有各种 eos, bos, eop 等符号，比较麻烦。相信重剑无锋吧～
+
+- [ ] 后续替换成自己的 tokenizer 做 dataprocess
+
+
 ## Tokenizer
 由于 BPE 算法实在是太占用内存了，第一期采用 `SentencePiece` Random Select 一些数据跑通 Train Tokenizer 的过程。 
 
+更新：`from tokenizers import SentencePieceBPETokenizer` train 一个 tokenizer 可以采用 Iterator 的形式，所以最终采用了 `SentencePieceBPETokenizer` 来训练 tokenizer。具体见：`tokenizer/train_bpe_with_sentencepiece.py`，但实际训练过程中和[repo](https://github.com/jiahe7ay/MINI_LLM)一样，采用了 qwen 实现。（问题不大，后续换成自己的）
+
+运行方式： `python3 tokenizer/train_bpe_with_sentencepiece.py`
+
 ## Pretrain
+运行方式 1 （accelerate + deepspeed）： `sh scripts/run.sh`  
+运行方式 2（裸 trainer）: `python pretrain/pretrain.py`
+
+> 参数量: 120803840, 0.12B
+
 
 ## SFT
 
@@ -30,5 +45,6 @@
 
 
 ## Reference
-1. https://github.com/Tongjilibo/build_MiniLLM_from_scratch/tree/master
-2. https://github.com/DLLXW/baby-llama2-chinese
+- https://github.com/jiahe7ay/MINI_LLM
+- https://github.com/Tongjilibo/build_MiniLLM_from_scratch
+- https://github.com/DLLXW/baby-llama2-chinese
