@@ -1,4 +1,7 @@
 # LLMs-101
+
+[![ApeCode.ai](https://img.shields.io/badge/🦧_ApeCode.ai-AI_Tools_&_Learning-orange?style=flat-square)](https://apecode.ai/zh) [![ApeRouter](https://img.shields.io/badge/🔗_ApeRouter-LLM_API_Proxy-blue?style=flat-square)](https://apecode.ai/zh/products/aperouter)
+
 计划自己动手训练一个 miniLLM，模型参数暂定 0.2B 。打算把 `data process`，`tokenizer`，`pretrain`，`sft`，`rlhf`都自己做一遍。深入了解预训练的细节。
 
 我们都知道掌握 LLM 的最好的办法是动手实践，但是囿于业务压力，我们很多时候没有精力和机会真正自己训练一个 LLM。因此 LLM 算法工程师可能就变成了「prompt 调优工程师」，工作内容只有三件事：看业务数据，写 Prompt 和 ICL 样例，利用少量数据 SFT。这些事情做久了就会觉得无聊，那么我们一起动手从头开始训练一个 miniLLM 吧，欢迎围观！
